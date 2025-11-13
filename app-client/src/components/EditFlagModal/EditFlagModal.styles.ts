@@ -1,0 +1,182 @@
+import type { CSSProperties } from 'react';
+import type { Theme } from '../../theme.config';
+
+export const getEditFlagModalStyles = (theme: Theme) => {
+  const styles: Record<string, CSSProperties> = {
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 1000,
+      padding: '1rem',
+    },
+    modal: {
+      backgroundColor: theme.colors.bgSecondary,
+      borderRadius: '8px',
+      border: `1px solid ${theme.colors.borderColor}`,
+      width: '100%',
+      maxWidth: '600px',
+      maxHeight: '90vh',
+      overflow: 'auto',
+      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)',
+    },
+    header: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '1.5rem',
+      borderBottom: `1px solid ${theme.colors.borderColor}`,
+    },
+    title: {
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      color: theme.colors.textPrimary,
+      margin: 0,
+    },
+    closeButton: {
+      background: 'none',
+      border: 'none',
+      color: theme.colors.textSecondary,
+      fontSize: '1.5rem',
+      cursor: 'pointer',
+      padding: '0.25rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '4px',
+      transition: 'all 0.2s',
+      width: '32px',
+      height: '32px',
+    },
+    closeButtonHover: {
+      backgroundColor: theme.colors.bgTertiary,
+      color: theme.colors.textPrimary,
+    },
+    content: {
+      padding: '1.5rem',
+    },
+    footer: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      gap: '0.75rem',
+      padding: '1.5rem',
+      borderTop: `1px solid ${theme.colors.borderColor}`,
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1.25rem',
+    },
+    formGroup: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.5rem',
+    },
+    label: {
+      fontSize: '0.875rem',
+      fontWeight: 500,
+      color: theme.colors.textPrimary,
+    },
+    requiredMark: {
+      color: theme.colors.danger,
+      marginLeft: '0.25rem',
+    },
+    input: {
+      padding: '0.625rem 0.75rem',
+      fontSize: '0.875rem',
+      borderRadius: '6px',
+      border: `1px solid ${theme.colors.borderColor}`,
+      backgroundColor: theme.colors.bgPrimary,
+      color: theme.colors.textPrimary,
+      outline: 'none',
+      transition: 'border-color 0.2s',
+    },
+    inputError: {
+      borderColor: theme.colors.danger,
+    },
+    textarea: {
+      padding: '0.625rem 0.75rem',
+      fontSize: '0.875rem',
+      borderRadius: '6px',
+      border: `1px solid ${theme.colors.borderColor}`,
+      backgroundColor: theme.colors.bgPrimary,
+      color: theme.colors.textPrimary,
+      outline: 'none',
+      transition: 'border-color 0.2s',
+      resize: 'vertical',
+      minHeight: '80px',
+      fontFamily: 'inherit',
+    },
+    checkbox: {
+      width: '18px',
+      height: '18px',
+      cursor: 'pointer',
+      accentColor: theme.colors.accentPrimary,
+    },
+    checkboxLabel: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      fontSize: '0.875rem',
+      color: theme.colors.textPrimary,
+      cursor: 'pointer',
+    },
+    error: {
+      fontSize: '0.75rem',
+      color: theme.colors.danger,
+      marginTop: '0.25rem',
+    },
+    button: {
+      padding: '0.625rem 1.25rem',
+      fontSize: '0.875rem',
+      fontWeight: 500,
+      borderRadius: '6px',
+      border: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.2s',
+      outline: 'none',
+    },
+    buttonPrimary: {
+      backgroundColor: theme.colors.accentPrimary,
+      color: '#ffffff',
+    },
+    buttonPrimaryHover: {
+      backgroundColor: theme.colors.accentHover,
+    },
+    buttonSecondary: {
+      backgroundColor: 'transparent',
+      color: theme.colors.textSecondary,
+      border: `1px solid ${theme.colors.borderColor}`,
+    },
+    buttonSecondaryHover: {
+      backgroundColor: theme.colors.bgTertiary,
+      color: theme.colors.textPrimary,
+    },
+    infoSection: {
+      padding: '1rem',
+      backgroundColor: theme.colors.bgTertiary,
+      borderRadius: '6px',
+      border: `1px solid ${theme.colors.borderColor}`,
+      marginBottom: '1rem',
+    },
+    infoLabel: {
+      fontSize: '0.75rem',
+      color: theme.colors.textSecondary,
+      marginBottom: '0.25rem',
+    },
+    infoValue: {
+      fontSize: '0.875rem',
+      color: theme.colors.textPrimary,
+      fontWeight: 500,
+    },
+  };
+
+  return styles;
+};
