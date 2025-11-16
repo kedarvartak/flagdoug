@@ -4,10 +4,48 @@
 const originalConsoleError = console.error;
 const originalConsoleWarn = console.warn;
 
+// Mock fetch globally for tests
+const mockFetch = jest.fn();
+(global as any).fetch = mockFetch;
+
 beforeEach(() => {
   // Reset console mocks before each test
   console.error = jest.fn();
   console.warn = jest.fn();
+  
+  // Reset fetch mock
+  mockFetch.mockClear();
+  
+  // Default successful responses
+  mockFetch.mockImplementation((url: string) => {
+    if (url.includes('/validate')) {
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve({ valid: true })
+      });
+    }
+    
+    if (url.includes('/flags')) {
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve({ 
+          flags: [
+            { key: 'test-flag', value: 'test-value', enabled: true },
+            { key: 'number-flag', value: 42, enabled: true },
+            { key: 'boolean-flag', value: true, enabled: true }
+          ]
+        })
+      });
+    }
+    
+    return Promise.resolve({
+      ok: true,
+      status: 200,
+      json: () => Promise.resolve({})
+    });
+  });
 });
 
 afterEach(() => {
